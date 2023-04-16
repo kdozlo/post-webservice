@@ -1,5 +1,5 @@
 # my setting
-.properties
+*.properties
 
 HELP.md
 .gradle
