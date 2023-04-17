@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.*;
 import webstudy.postwebservice.service.posts.PostsService;
 import webstudy.postwebservice.web.dto.PostsResponseDto;
 import webstudy.postwebservice.web.dto.PostsSaveRequestDto;
+import webstudy.postwebservice.web.dto.PostsUpdateRequestDto;
 
 @RequiredArgsConstructor
 @RestController
