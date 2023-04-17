@@ -19,6 +19,7 @@ import webstudy.postwebservice.web.dto.PostsUpdateRequestDto;
 import java.util.List;
 
 
+
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class PostsApiControllerTest {
 
@@ -96,5 +97,4 @@ class PostsApiControllerTest {
         Assertions.assertThat(all.get(0).getTitle()).isEqualTo(expectedTitle);
         Assertions.assertThat(all.get(0).getContent()).isEqualTo(expectedContent);
     }
-
 }
