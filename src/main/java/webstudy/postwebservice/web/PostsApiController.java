@@ -3,6 +3,7 @@ package webstudy.postwebservice.web;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import webstudy.postwebservice.service.posts.PostsService;
+import webstudy.postwebservice.web.dto.PostsResponseDto;
 import webstudy.postwebservice.web.dto.PostsSaveRequestDto;
 
 @RequiredArgsConstructor
