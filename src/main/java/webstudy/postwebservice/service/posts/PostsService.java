@@ -9,6 +9,8 @@ import webstudy.postwebservice.web.dto.PostsResponseDto;
 import webstudy.postwebservice.web.dto.PostsSaveRequestDto;
 import webstudy.postwebservice.web.dto.PostsUpdateRequestDto;
 
+import java.util.stream.Collectors;
+
 @RequiredArgsConstructor
 @Service
 public class PostsService {
@@ -31,11 +33,19 @@ public class PostsService {
         return id;
     }
 
+    @Transactional
     public PostsResponseDto findById (Long id) {
         Posts entity = postsRepository.findById(id)
                 .orElseThrow(() -> new
                         IllegalArgumentException("해당 게시글이 없습니다. id=" + id));
 
         return new PostsResponseDto(entity);
+    }
+
+    @Transactional(readOnly = true)
+    public List<PostsListResponseDto> findAllDesc() {
+        return postsRepository.findAllDesc().stream()
+                .map(PostsListResponseDto::new)
+                .collect(Collectors.toList());
     }
 }
