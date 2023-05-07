@@ -5,10 +5,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import webstudy.postwebservice.domain.posts.Posts;
 import webstudy.postwebservice.domain.posts.PostsRepository;
+import webstudy.postwebservice.web.dto.PostsListResponseDto;
 import webstudy.postwebservice.web.dto.PostsResponseDto;
 import webstudy.postwebservice.web.dto.PostsSaveRequestDto;
 import webstudy.postwebservice.web.dto.PostsUpdateRequestDto;
 
+import java.util.List;
 import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
