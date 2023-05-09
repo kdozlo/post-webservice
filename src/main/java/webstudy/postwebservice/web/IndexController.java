@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import webstudy.postwebservice.service.posts.PostsService;
+import webstudy.postwebservice.web.dto.PostsResponseDto;
 import webstudy.postwebservice.web.dto.PostsUpdateRequestDto;
 
 @RequiredArgsConstructor
@@ -27,10 +28,12 @@ public class IndexController {
     public String postsSave() {
         return "posts-save";
     }
+    
+    @GetMapping("/posts/update/{id}")
+    public String postsUpdate(@PathVariable Long id, Model model){
+        PostsResponseDto dto = postsService.findById(id);
+        model.addAttribute("post", dto);
 
-    @PutMapping("/api/v1/posts/{id}")
-    public Long update(@PathVariable Long id, @RequestBody
-                       PostsUpdateRequestDto requestDto) {
-        return postsService.update(id, requestDto);
+        return "posts-update";
     }
 }
