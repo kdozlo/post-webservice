@@ -10,6 +10,7 @@ import org.springframework.security.oauth2.core.user.DefaultOAuth2User;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Service;
 import webstudy.postwebservice.config.auth.dto.OAuthAttributes;
+import webstudy.postwebservice.config.auth.dto.SessionUser;
 import webstudy.postwebservice.domain.user.User;
 import webstudy.postwebservice.domain.user.UserRepository;
 
