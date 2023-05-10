@@ -1,7 +1,7 @@
 package webstudy.postwebservice.config.auth.dto;
 
 import lombok.Getter;
-import webstudy.postwebservice.domain.user.User;
+import webstudy.postwebservice.domain.users.Users;
 
 import java.io.Serializable;
 
@@ -11,7 +11,7 @@ public class SessionUser implements Serializable {
     private String email;
     private String picture;
 
-    public SessionUser(User user) {
+    public SessionUser(Users user) {
         this.name = user.getName();
         this.email = user.getEmail();
         this.picture = user.getPicture();

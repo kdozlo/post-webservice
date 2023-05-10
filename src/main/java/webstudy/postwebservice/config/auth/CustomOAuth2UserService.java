@@ -11,8 +11,8 @@ import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Service;
 import webstudy.postwebservice.config.auth.dto.OAuthAttributes;
 import webstudy.postwebservice.config.auth.dto.SessionUser;
-import webstudy.postwebservice.domain.user.User;
-import webstudy.postwebservice.domain.user.UserRepository;
+import webstudy.postwebservice.domain.users.Users;
+import webstudy.postwebservice.domain.users.UserRepository;
 
 import javax.servlet.http.HttpSession;
 import java.util.Collections;
@@ -38,7 +38,7 @@ public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
         OAuthAttributes attributes = OAuthAttributes.of(registrationId, userNameAttributeName,
                 oAuth2User.getAttributes());
 
-        User user = saveOrUpdate(attributes);
+        Users user = saveOrUpdate(attributes);
 
         httpSession.setAttribute("user", new SessionUser(user));
 
@@ -47,8 +47,8 @@ public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
                 attributes.getNameAttributeKey());
     }
 
-    private User saveOrUpdate(OAuthAttributes attributes) {
-        User user = userRepository.findByEmail(attributes.getEmail())
+    private Users saveOrUpdate(OAuthAttributes attributes) {
+        Users user = userRepository.findByEmail(attributes.getEmail())
                 .map(entity -> entity.update(attributes.getName(), attributes.getPicture()))
                 .orElse(attributes.toEntity());
 

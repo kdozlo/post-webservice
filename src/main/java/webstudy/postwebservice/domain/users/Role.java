@@ -1,4 +1,4 @@
-package webstudy.postwebservice.domain.user;
+package webstudy.postwebservice.domain.users;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

@@ -2,8 +2,8 @@ package webstudy.postwebservice.config.auth.dto;
 
 import lombok.Builder;
 import lombok.Getter;
-import webstudy.postwebservice.domain.user.Role;
-import webstudy.postwebservice.domain.user.User;
+import webstudy.postwebservice.domain.users.Role;
+import webstudy.postwebservice.domain.users.Users;
 
 import java.util.Map;
 
@@ -39,8 +39,8 @@ public class OAuthAttributes {
                 .build();
     }
 
-    public User toEntity() {
-        return User.builder()
+    public Users toEntity() {
+        return Users.builder()
                 .name(name)
                 .email(email)
                 .picture(picture)
